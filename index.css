@@ -5,6 +5,20 @@
     "Source Han Sans CN", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.header a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.header a:hover {
+  color: #9757d3; /* Purple accent color */
+}
+
 .main-container {
   overflow: hidden;
 }
