@@ -67,7 +67,7 @@ function initProjectSlideshow() {
     const projectImages = {
         papais: 8,
         puskesmas: 8,
-        guacamole: 2,
+        guacamole: 1,
         dashboard: 6
     };
 
