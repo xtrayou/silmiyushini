@@ -34,6 +34,31 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// Loading Screen
+window.addEventListener('load', () => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const loadingProgress = document.getElementById('loadingProgress');
+    
+    // Simulate loading progress
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 30;
+        if (progress > 100) {
+            progress = 100;
+            clearInterval(interval);
+            
+            // Hide loading screen after a short delay
+            setTimeout(() => {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 300);
+        }
+        loadingProgress.style.width = progress + '%';
+    }, 200);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
