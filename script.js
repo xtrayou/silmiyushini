@@ -123,7 +123,7 @@ function lazyLoadDokumentasiImages() {
 // Project Image Slideshow
 function initProjectSlideshow() {
     const projectImages = {
-        papais: 8,
+        papais: 7,
         puskesmas: 8,
         guacamole: 1,
         dashboard: 6
