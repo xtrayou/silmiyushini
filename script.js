@@ -131,7 +131,8 @@ function initProjectSlideshow() {
         papais: 7,
         puskesmas: 8,
         guacamole: 1,
-        dashboard: 6
+        dashboard: 6,
+        aranghaki: 2
     };
 
     const projectElements = document.querySelectorAll('.project-image[data-project]');
