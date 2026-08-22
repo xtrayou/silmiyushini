@@ -199,6 +199,40 @@ a {
   line-height: 1.8;
 }
 
+.hero-cv-download {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: var(--spacing-sm);
+}
+
+.cv-btn {
+  padding: 0.6rem 1.8rem;
+  background: rgba(113, 39, 186, 0.1);
+  color: var(--accent-purple-light);
+  font-weight: 600;
+  border: 2px solid var(--accent-purple);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-family: var(--font-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.cv-btn::before {
+  content: '📄';
+}
+
+.cv-btn:hover {
+  background: var(--gradient-purple);
+  color: var(--text-white);
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(113, 39, 186, 0.3);
+}
+
 .social-links,
 .social-links-footer {
   display: flex;
@@ -294,20 +328,6 @@ a {
   50% { transform: scale(1.05); opacity: 0.5; }
 }
 
-/* ===== ABOUT SECTION ===== */
-.about-section {
-  padding: var(--spacing-xxl) var(--spacing-md);
-  background: var(--primary-bg);
-}
-
-.about-text {
-  font-size: 1.3rem;
-  line-height: 2;
-  color: var(--text-gray);
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
 
 /* ===== SKILLS SECTION ===== */
 .skills-section {
