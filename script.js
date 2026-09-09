@@ -12,7 +12,41 @@ function closeModal(modalId) {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto'; // Re-enable scrolling
+        if (modalId === 'cvPreviewModal') {
+            const iframe = document.getElementById('cvModalIframe');
+            if (iframe) iframe.src = '';
+        }
     }
+}
+
+// CV Preview Modal Functions
+function openCvPreview(pdfUrl, title) {
+    const modal = document.getElementById('cvPreviewModal');
+    const iframe = document.getElementById('cvModalIframe');
+    const titleEl = document.getElementById('cvModalTitle');
+    const downloadBtn = document.getElementById('cvModalDownloadBtn');
+    const newTabBtn = document.getElementById('cvModalNewTabBtn');
+
+    if (modal && iframe) {
+        if (titleEl) titleEl.textContent = title || 'CV Preview';
+        if (downloadBtn) {
+            downloadBtn.href = pdfUrl;
+            // Set download attribute filename
+            const filename = pdfUrl.split('/').pop() || 'CV.pdf';
+            downloadBtn.setAttribute('download', decodeURIComponent(filename));
+        }
+        if (newTabBtn) {
+            newTabBtn.href = pdfUrl;
+        }
+
+        iframe.src = pdfUrl + '#toolbar=1&navpanes=0';
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeCvPreview() {
+    closeModal('cvPreviewModal');
 }
 
 // Close modal when clicking outside
@@ -20,6 +54,10 @@ window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
         event.target.style.display = 'none';
         document.body.style.overflow = 'auto';
+        const iframe = document.getElementById('cvModalIframe');
+        if (iframe && event.target.id === 'cvPreviewModal') {
+            iframe.src = '';
+        }
     }
 }
 
@@ -30,6 +68,8 @@ document.addEventListener('keydown', function(event) {
         modals.forEach(modal => {
             modal.style.display = 'none';
         });
+        const cvIframe = document.getElementById('cvModalIframe');
+        if (cvIframe) cvIframe.src = '';
         document.body.style.overflow = 'auto';
     }
 });

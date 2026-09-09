@@ -79,8 +79,8 @@
               I’m an Information Systems student, <strong>Front-End Developer</strong>, and <strong>UI Designer</strong> who enjoys turning ideas into intuitive and functional digital experiences.
             </p>
             <div class="hero-cv-download">
-              <a href="cv/Silmi_Yushini_Resume.pdf" target="_blank" class="cv-btn" download>Download CV (EN)</a>
-              <a href="cv/CV- SILMI YUSHINI.pdf" target="_blank" class="cv-btn" download>Download CV (ID)</a>
+              <button type="button" class="cv-btn" onclick="openCvPreview('cv/Silmi_Yushini_Resume.pdf', 'CV Silmi Yushini (English)')">Preview CV (EN)</button>
+              <button type="button" class="cv-btn" onclick="openCvPreview('cv/CV SILMI YUSHINI.pdf', 'CV Silmi Yushini (Bahasa Indonesia)')">Preview CV (ID)</button>
             </div>
             <div class="social-links">
               <a href="https://linkedin.com/in/silmiyushini" target="_blank" class="social-icon linkedin-icon" aria-label="LinkedIn"></a>
@@ -354,6 +354,35 @@
         
         <div class="gallery-thumbnails" id="galleryThumbnails">
           <!-- Thumbnails will be inserted here by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- CV Preview Modal -->
+    <div id="cvPreviewModal" class="modal cv-modal">
+      <div class="cv-modal-backdrop" onclick="closeCvPreview()"></div>
+      <div class="cv-modal-container">
+        <div class="cv-modal-header">
+          <div class="cv-modal-title-group">
+            <span class="cv-modal-icon">📄</span>
+            <h3 id="cvModalTitle" class="cv-modal-title">CV Preview</h3>
+          </div>
+          <div class="cv-modal-actions">
+            <a id="cvModalDownloadBtn" href="#" download class="cv-action-btn download-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download</span>
+            </a>
+            <a id="cvModalNewTabBtn" href="#" target="_blank" rel="noopener noreferrer" class="cv-action-btn external-btn" title="Open in new tab">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span>Full View</span>
+            </a>
+            <button type="button" class="cv-action-btn close-btn" onclick="closeCvPreview()" aria-label="Close CV Preview">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="cv-modal-body">
+          <iframe id="cvModalIframe" src="" title="CV PDF Preview"></iframe>
         </div>
       </div>
     </div>
